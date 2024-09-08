@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// генерирует количество очков атаки в зависимости от выбранного типа персонажа
 func attack(charName, charClass string) string {
 	if charClass == "warrior" {
 		return fmt.Sprintf("%s нанес урон противнику равный %d.", charName, 5+randint(3, 5))
@@ -21,6 +22,7 @@ func attack(charName, charClass string) string {
 	return "неизвестный класс персонажа"
 }
 
+// генерирует количество очков защиты в зависимости от выбранного типа персонажа и возвращает строковое сообщение о выполненном блокировании атаки
 // обратите внимание на "if else" и на "else"
 func defence(char_name, char_class string) string {
 	if char_class == "warrior" {
@@ -34,6 +36,7 @@ func defence(char_name, char_class string) string {
 	}
 }
 
+// в зависимости от выбранного типа персонажа возвращает сообщение о применении специального умения
 // обратите внимание на "if else" и на "else"
 func special(charName, charClass string) string {
 	if charClass == "warrior" {
@@ -47,6 +50,7 @@ func special(charName, charClass string) string {
 	}
 }
 
+// запускает цикл тренировки навыков персонажа.
 // здесь обратите внимание на имена параметров
 func start_training(char_name, char_class string) string {
 	if char_class == "warrior" {
@@ -88,6 +92,7 @@ func start_training(char_name, char_class string) string {
 	return "тренировка окончена"
 }
 
+// позволяет игроку выбрать тип игрового персонажа и возвращает выбранный вариант
 // обратите внимание на имя функции и имена переменных
 func choise_char_class() string {
 	var approve_choice string
@@ -110,6 +115,7 @@ func choise_char_class() string {
 	return char_class
 }
 
+// главная функция. Она запускает игру, и из неё вызываются все вспомогательные функции
 // обратите внимание на имена переменных
 func main() {
 	fmt.Println("Приветствую тебя, искатель приключений!")
@@ -129,6 +135,7 @@ func main() {
 	fmt.Println(start_training(char_name, char_class))
 }
 
+// вспомогательная функция, которая возвращает случайное целое число в заданном диапазоне
 func randint(min, max int) int {
 	return rand.Intn(max-min) + min
 }
